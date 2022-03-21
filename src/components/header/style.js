@@ -8,7 +8,8 @@ const Style = StyleSheet.create({
     paddingVertical: 7,
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: theme.WHITE
+    backgroundColor: theme.WHITE,
+    elevation: 15,
   },
   imageHeader: {
     height: 50,
@@ -22,12 +23,9 @@ const Style = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   }, 
-  lineMenu: {
-    backgroundColor: theme.WHITE,
-    height: 4,
-    width: 21,
-    marginVertical: 1,
-    borderRadius: 2
+  iconMenu: {
+    color: theme.WHITE,
+    fontSize: 21
   }
 });
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
+import RenderHtml from 'react-native-render-html';
 import { get } from '../../../services/api';
 
 import Style from './style';
@@ -21,8 +22,6 @@ export default function PostsList(props) {
     <View style={Style.container}>
       <Text 
         style={Style.titleCategory}
-        ellipsizeMode='tail'
-        numberOfLines={2}
       >
         { category.name }
       </Text>
@@ -41,6 +40,12 @@ export default function PostsList(props) {
             />
             <View style={Style.postContent}>
               <Text style={Style.postTitle}>{ item.title.rendered }</Text>
+
+              <RenderHtml
+                source={{html: item.excerpt.rendered}}
+                tagsStyles={Style}
+                maxLength={4}
+              />
             </View>
           </TouchableOpacity>
         )}

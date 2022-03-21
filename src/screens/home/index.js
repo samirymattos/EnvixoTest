@@ -5,6 +5,7 @@ import { get } from '../../services/api';
 
 import Header from '../../components/header';
 import Style from './style';
+import Footer from '../../components/footer';
 
 export default function HomeScreen(props) {
   const [categories, setCategories] = useState([]);
@@ -23,6 +24,7 @@ export default function HomeScreen(props) {
         {...props}
         data={categories}
       />
+      <Footer />
     </View>
   );
 }
