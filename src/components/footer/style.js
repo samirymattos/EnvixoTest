@@ -9,6 +9,7 @@ const Style = StyleSheet.create({
     paddingTop: 19,
     paddingBottom: 24,
     backgroundColor: theme.BG_GREEN,
+    marginTop: 59
   },
   imageFooter: {
     height: 45,

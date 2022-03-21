@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/Entypo';
 
 import Style from './style';
 import ImagePost from '../image-post';
+import ContentHTML from '../text-post';
 
 export default function PostsList(props) {
   const { category, navigation } = props;
@@ -50,11 +51,16 @@ export default function PostsList(props) {
               imageId={item.featured_media}
             />
             <View style={Style.postContent}>
-              <Text style={Style.postTitle}>{ item.title.rendered }</Text>
 
-              <RenderHtml
-                source={{html: item.excerpt.rendered}}
-                tagsStyles={Style}
+              <Text 
+                style={Style.postTitle} 
+                numberOfLines={2}
+              >
+                { item.title.rendered }
+              </Text>
+
+              <ContentHTML
+                contentText = {item}
               />
 
               <Text style={Style.plusInfo}>Leia mais</Text>
