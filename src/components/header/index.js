@@ -16,10 +16,22 @@ export default function Header(props) {
         backgroundColor={backgroundColor || theme.WHITE}
       />
       <SafeAreaView style={Style.container}>
-        <Image
-          style={Style.imageHeader}
-          source={require('../../assets/images/logo-2.png')}
-        />
+        <View style={Style.containerHeader}>
+          
+          <TouchableOpacity 
+            style={Style.buttonFooter}
+            onPress={() => navigation.navigate('Home')}
+          >
+            <Icon 
+              style={Style.iconArrow} 
+              name="arrow-left"
+            />
+          </TouchableOpacity>
+          <Image
+            style={Style.imageHeader}
+            source={require('../../assets/images/logo-2.png')}
+          />
+        </View>
         <TouchableOpacity style={Style.buttonMenu}>
           <Icon 
             style={Style.iconMenu} 

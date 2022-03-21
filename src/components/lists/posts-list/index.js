@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import RenderHtml from 'react-native-render-html';
 import { get } from '../../../services/api';
+import Icon from 'react-native-vector-icons/Entypo';
 
 import Style from './style';
-import ImagePost from './image';
+import ImagePost from '../image-post';
 
 export default function PostsList(props) {
   const { category, navigation } = props;
@@ -20,11 +21,21 @@ export default function PostsList(props) {
 
   return(
     <View style={Style.container}>
-      <Text 
-        style={Style.titleCategory}
-      >
-        { category.name }
-      </Text>
+      <View style={Style.containerTitleCategory}>
+        <Text 
+          style={Style.titleCategory}
+        >
+          { category.name }
+        </Text>
+
+        <TouchableOpacity style={Style.moreContainer}>
+          <Text style={Style.moreOptions}>Ver mais</Text>
+          <Icon 
+            style={Style.iconMenu} 
+            name="triangle-right"
+          />
+        </TouchableOpacity>
+      </View>
       <FlatList
         data={posts}
         keyExtractor={(item) => `${item?.id}`}
@@ -44,8 +55,9 @@ export default function PostsList(props) {
               <RenderHtml
                 source={{html: item.excerpt.rendered}}
                 tagsStyles={Style}
-                maxLength={4}
               />
+
+              <Text style={Style.plusInfo}>Leia mais</Text>
             </View>
           </TouchableOpacity>
         )}

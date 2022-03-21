@@ -7,6 +7,13 @@ const Style = StyleSheet.create({
     paddingTop: 43,
     paddingBottom: 59
   },
+  containerTitleCategory: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingLeft: 15,
+    paddingRight: 12
+  },
   titleCategory: {
     flex: 1,
     color: theme.TEXT_GREEN,
@@ -14,7 +21,16 @@ const Style = StyleSheet.create({
     fontFamily: 'Roboto',
     textTransform: 'uppercase',
     fontWeight: 'bold',
-    paddingHorizontal: 15,
+  },
+  moreContainer: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  moreOptions: {
+    textTransform: 'uppercase',
+    fontSize: 17,
+    color: theme.TEXT_BLACK,
+    marginRight: 5
   },
   postItem: {
     marginLeft: 15,
@@ -48,6 +64,16 @@ const Style = StyleSheet.create({
     fontSize: 15,
     fontFamily: 'Roboto',
     letterSpacing: 0,
+    margin: 0,
+    marginTop: 16
+  },
+  plusInfo: {
+    color: theme.TEXT_ORANGE,
+    fontSize: 16,
+    fontFamily: 'Roboto',
+    letterSpacing: 0,
+    fontWeight: 'bold',
+    marginTop: 15
   }
 });
 

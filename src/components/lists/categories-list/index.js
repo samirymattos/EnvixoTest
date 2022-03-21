@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList } from 'react-native';
 
 import PostsList from '../posts-list';
-import Style from '../posts-list/style';
+import Footer from '../../footer';
 
 export default function CategoriesList(props) {
   const { data } = props;
@@ -11,6 +11,7 @@ export default function CategoriesList(props) {
     <FlatList
       data={data}
       keyExtractor={(item) => `${item?.id}`}
+      ListFooterComponent={Footer}
       renderItem={({item}) => (
         <PostsList 
           {...props}

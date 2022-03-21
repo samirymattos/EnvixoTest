@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, Text } from 'react-native';
 import { get } from '../../../services/api';
 
 import Style from './style';

@@ -26,6 +26,13 @@ const Style = StyleSheet.create({
   iconMenu: {
     color: theme.WHITE,
     fontSize: 21
+  },
+  containerHeader: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  iconArrow: {
+    marginRight: 10
   }
 });
 
