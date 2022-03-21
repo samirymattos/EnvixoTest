@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
+
+import PostsList from '../posts-list';
 
 export default function CategoriesList(props) {
   const { data } = props;
@@ -9,9 +11,10 @@ export default function CategoriesList(props) {
       data={data}
       keyExtractor={(item) => `${item?.id}`}
       renderItem={({item}) => (
-        <View>
-          <Text>{ item.name }</Text>
-        </View>
+        <PostsList 
+          {...props}
+          category={item}
+        />
       )}
     />
   );
