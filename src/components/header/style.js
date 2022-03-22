@@ -33,6 +33,12 @@ const Style = StyleSheet.create({
   },
   iconArrow: {
     marginRight: 10
+  },
+  arrowBack: {
+    fontSize: 20,
+    padding: 10,
+    marginRight: 10,
+    color: theme.TEXT_BLACK
   }
 });
 

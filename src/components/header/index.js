@@ -24,6 +24,7 @@ export default function Header(props) {
               onPress={() => navigation.goBack()}
             >
               <Icon 
+                style={Style.arrowBack}
                 name="arrow-left"
               />
             </TouchableOpacity>
