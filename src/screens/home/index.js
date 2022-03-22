@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import CategoriesList from '../../components/lists/categories-list';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { get } from '../../services/api';
 
 import Header from '../../components/header';
+import CategoriesList from '../../components/lists/categories-list';
 import Style from './style';
 
 export default function HomeScreen(props) {
@@ -37,9 +38,21 @@ export default function HomeScreen(props) {
         {...props}
         hideBackBtn
       />
-      <TouchableOpacity
-        onPress={() => orderCategories()}
-      ><Text>aaaaaaaaaaaaaa</Text></TouchableOpacity>
+      <View style={Style.containerOrder}>
+        <Text style={Style.textOrder}>Ordernar por:</Text>
+        <TouchableOpacity
+          onPress={() => orderCategories()}
+          style={Style.btnOrder}
+        >
+          <Text style={Style.textOrder}> 
+            {current_order == 'asc' ? 'Z-A' : 'A-Z'}
+          </Text>
+          <Icon  
+            name={current_order == 'asc' ? 'sort-desc' : 'sort-asc'}
+            style={Style.iconOrder}
+          />
+        </TouchableOpacity>
+      </View>
       <CategoriesList 
         {...props}
         data={categories}
