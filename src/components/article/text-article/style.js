@@ -3,6 +3,7 @@ import theme from '../../../assets/styles/theme.style'
 
 const Style = StyleSheet.create({
   container: {
+    flex: 1,
     height: '100%',
     marginTop: 31
   },

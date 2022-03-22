@@ -44,7 +44,7 @@ export default function PostsList(props) {
         showsHorizontalScrollIndicator={false}
         renderItem={({item}) => (
           <TouchableOpacity 
-            onPress={() => navigation.navigate('Article', {article: item})}
+            onPress={() => navigation.navigate('Article', {articleId: item.id})}
             style={Style.postItem}
           >
             <ImagePost

@@ -1,13 +1,13 @@
 import React from 'react';
 import { View, Image, TouchableOpacity, StatusBar } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Icon from 'react-native-vector-icons/Entypo';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import theme from '../../assets/styles/theme.style';
 import Style from './style';
 
 export default function Header(props) {
-  const { backgroundColor, barStyle } = props;
+  const { backgroundColor, barStyle, navigation, hideBackBtn } = props;
 
   return (
     <View style={{backgroundColor: backgroundColor || 'transparent'}}>
@@ -18,15 +18,16 @@ export default function Header(props) {
       <SafeAreaView style={Style.container}>
         <View style={Style.containerHeader}>
           
-          <TouchableOpacity 
-            style={Style.buttonFooter}
-            onPress={() => navigation.navigate('Home')}
-          >
-            <Icon 
-              style={Style.iconArrow} 
-              name="arrow-left"
-            />
-          </TouchableOpacity>
+          {!hideBackBtn && 
+            <TouchableOpacity 
+              style={Style.buttonFooter}
+              onPress={() => navigation.goBack()}
+            >
+              <Icon 
+                name="arrow-left"
+              />
+            </TouchableOpacity>
+          }
           <Image
             style={Style.imageHeader}
             source={require('../../assets/images/logo-2.png')}
@@ -35,7 +36,7 @@ export default function Header(props) {
         <TouchableOpacity style={Style.buttonMenu}>
           <Icon 
             style={Style.iconMenu} 
-            name="menu"
+            name="bars"
           />
         </TouchableOpacity>
       </SafeAreaView>

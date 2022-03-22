@@ -4,17 +4,19 @@ import { get } from '../../../services/api';
 
 import Style from './style';
 
-export default function ImagePost(props) {
+export default function ImageArticle(props) {
   const { imageId } = props;
 
   const [imagePost, setImagePost] = useState([]);
 
   useEffect(() => {
     (async () => {
-      const resp = await get('img', `media/${imageId}`);
-      if (resp) setImagePost(resp.source_url);
+      if (imageId) {
+        const resp = await get('img', `media/${imageId}`);
+        if (resp) setImagePost(resp.source_url);
+      }
     })();
-  }, []);
+  }, [imageId]);
 
   return(
     <View >

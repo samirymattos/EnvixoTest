@@ -5,36 +5,40 @@ import { get } from '../../services/api';
 import Style from './style';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
-import ImagePost from '../../components/article/image-article';
+import ImageArticle from '../../components/article/image-article';
 import TextArticle from '../../components/article/text-article';
 
 export default function ArticleScreen(props) {  
-  // const { articleId } = props;
+  const articleId = props.route.params.articleId;
 
-  const [articles, setArticles] = useState([]);
+  const [article, setArticle] = useState([]);
   
   useEffect(() => {
     (async () => {
-      const resp = await get('artigos', `posts/4907`);
-      if (resp) setArticles(resp);
+      const resp = await get('artigos', `posts/${articleId}`);
+      if (resp) setArticle(resp);
     })();
   }, []);
 
   return(
     <View style={Style.container}>
-      <Header />
-      <ScrollView style={Style.topArticles}>
-        {/* <Text style={Style.titleArticle}>
-          {articles.title.rendered}
+      <Header 
+        {...props}
+      />
+      <ScrollView 
+        style={Style.topArticle}
+      >
+        <Text style={Style.titleArticle}>
+          {article?.title?.rendered}
         </Text>
-        <ImagePost
-          imageId={articles.featured_media}
-        /> */}
+        <ImageArticle
+          imageId={article?.featured_media}
+        />
         <TextArticle
-          articleId='4907'
-        ></TextArticle>
+          article={article}
+        />
+        <Footer />
       </ScrollView>
-      {/* <Footer /> */}
     </View>
   );
 }
