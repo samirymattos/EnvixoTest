@@ -25,9 +25,7 @@ export default function ArticleScreen(props) {
       <Header 
         {...props}
       />
-      <ScrollView 
-        style={Style.topArticle}
-      >
+      <ScrollView>
         <Text style={Style.titleArticle}>
           {article?.title?.rendered}
         </Text>

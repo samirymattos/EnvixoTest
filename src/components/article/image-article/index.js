@@ -19,7 +19,7 @@ export default function ImageArticle(props) {
   }, [imageId]);
 
   return(
-    <View >
+    <View style={Style.container}>
       <Image 
         style={Style.postImage}
         source={{uri: `${imagePost}`}} 
